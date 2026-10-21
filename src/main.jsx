@@ -12,4 +12,18 @@ import CarForm from './pages/CarForm';
 import MyListings from './pages/MyListings';
 import NotFound from './pages/NotFound';
 import './styles.css';
-createRoot(document.getElementById('root')).render(<React.StrictMode><BrowserRouter><AuthProvider><Routes><Route element={<Layout/>}><Route index element={<Home/>}/><Route path="cars" element={<Catalog/>}/><Route path="cars/new" element={<Private><CarForm/></Private>}/><Route path="cars/:id" element={<Details/>}/><Route path="cars/:id/edit" element={<Private><CarForm/></Private>}/><Route path="my-listings" element={<Private><MyListings/></Private>}/><Route path="login" element={<Guest><Auth mode="login"/></Guest>}/><Route path="register" element={<Guest><Auth mode="register"/></Guest>}/><Route path="*" element={<NotFound/>}/></Route></Routes></AuthProvider></BrowserRouter></React.StrictMode>);
+createRoot(document.getElementById('root'))
+.render(
+<React.StrictMode>
+    <BrowserRouter>
+    <AuthProvider>
+        <Routes>
+            <Route element={<Layout/>}>
+            <Route index element={<Home/>}/>
+            <Route path="cars" element={<Catalog/>}/>
+            <Route path="cars/new" element={<Private><CarForm/></Private>}/>
+            <Route path="cars/:id" element={<Details/>}/><Route path="cars/:id/edit" element={<Private><CarForm/></Private>}/>
+            <Route path="my-listings" element={<Private><MyListings/></Private>}/>
+            <Route path="login" element={<Guest><Auth mode="login"/></Guest>}/>
+            <Route path="register" element={<Guest><Auth mode="register"/></Guest>}/>
+            <Route path="*" element={<NotFound/>}/></Route></Routes></AuthProvider></BrowserRouter></React.StrictMode>);
